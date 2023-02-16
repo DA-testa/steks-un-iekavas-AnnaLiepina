@@ -37,7 +37,7 @@ def main():
         #         break
         #     else:
         #         command = command[1:]
-        text = command[5:]
+        text = input()
         mismatch = find_mismatch(text)
 
 if __name__ == "__main__":
