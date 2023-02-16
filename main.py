@@ -32,13 +32,12 @@ def main():
         command = input()
         if command[0] != 'I':
             return
-        while True:
-            if command[0] in "([{}])":
-                break
-            else:
-                command = command[1:]
-        text = command
-        print(text)
+        # while True:
+        #     if command[0] in "([{}])":
+        #         break
+        #     else:
+        #         command = command[1:]
+        text = command[5:]
         mismatch = find_mismatch(text)
 
 if __name__ == "__main__":
