@@ -32,11 +32,6 @@ def main():
         command = input()
         if command[0] != 'I':
             return
-        # while True:
-        #     if command[0] in "([{}])":
-        #         break
-        #     else:
-        #         command = command[1:]
         text = input()
         mismatch = find_mismatch(text)
 
