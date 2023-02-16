@@ -1,4 +1,4 @@
-# python3
+# Anna Marija Liepina 221rdb078 14. grupa
 
 from collections import namedtuple
 
@@ -10,32 +10,36 @@ def are_matching(left, right):
 
 
 def find_mismatch(text):
-    if text == 'I':
-        opening_brackets_stack = []
-        for i, next in enumerate(text):
-            if next in "([{":
-                opening_brackets_stack.append(Bracket(next, i+1))
+    opening_brackets_stack = []
+    for i, next in enumerate(text):
+        if next in "([{":
+            opening_brackets_stack.append(Bracket(next, i+1))
 
-            if next in ")]}":
-                if not opening_brackets_stack or not are_matching(opening_brackets_stack[-1].char, next):
-                    print(i + 1)
-                    return
-                opening_brackets_stack.pop()
+        if next in ")]}":
+            if not opening_brackets_stack or not are_matching(opening_brackets_stack[-1].char, next):
+                print(i + 1)
+                return
+            opening_brackets_stack.pop()
 
-        if not opening_brackets_stack:
-            print("Success")
-        else:
-            print(opening_brackets_stack[-1].position)
-        return
+    if not opening_brackets_stack:
+        print("Success")
+    else:
+        print(opening_brackets_stack[-1].position)
+    return
 
 
 def main():
         command = input()
-        if command != 'I': 
+        if command[0] != 'I':
             return
-        text = input()
+        while True:
+            if command[0] in "([{}])":
+                break
+            else:
+                command = command[1:]
+        text = command
+        print(text)
         mismatch = find_mismatch(text)
-        # Printing answer, write your code here
 
 if __name__ == "__main__":
     main()
