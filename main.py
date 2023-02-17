@@ -30,7 +30,7 @@ def find_mismatch(text):
 
 def main():
         command = input()
-        if command != 'I':
+        if command[0] != 'I':
             return
         text = input()
         mismatch = find_mismatch(text)
