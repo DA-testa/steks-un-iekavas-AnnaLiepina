@@ -1,4 +1,4 @@
-# python3
+# Anna Marija Liepina 221rdb078 14. grupa
 
 from collections import namedtuple
 
@@ -13,19 +13,27 @@ def find_mismatch(text):
     opening_brackets_stack = []
     for i, next in enumerate(text):
         if next in "([{":
-            # Process opening bracket, write your code here
-            pass
+            opening_brackets_stack.append(Bracket(next, i+1))
 
         if next in ")]}":
-            # Process closing bracket, write your code here
-            pass
+            if not opening_brackets_stack or not are_matching(opening_brackets_stack[-1].char, next):
+                print(i + 1)
+                return
+            opening_brackets_stack.pop()
+
+    if not opening_brackets_stack:
+        print("Success")
+    else:
+        print(opening_brackets_stack[-1].position)
+    return
 
 
 def main():
-    text = input()
-    mismatch = find_mismatch(text)
-    # Printing answer, write your code here
-
+        command = input()
+        if command[0] != 'I':
+            return
+        text = input()
+        mismatch = find_mismatch(text)
 
 if __name__ == "__main__":
     main()
